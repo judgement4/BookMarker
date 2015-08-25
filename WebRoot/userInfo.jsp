@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -25,6 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <p>this page is for user info.</p> <br>
     <h2>Welcome:</h2>
-    <%=request.getAttribute("username") %>
+    <%=session.getAttribute("user") %>
+    <hr>
+    <a href="<%=basePath %>">返回首页</a>
   </body>
 </html>

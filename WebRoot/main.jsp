@@ -1,5 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>main page for resource</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,28 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-  	<div>
-  	 <p> This is my first struts2 page. <br>  	
-  	</div>
+  <div>
+ 	<h1>±¾Ò³ÃæÎªÏÔÊ¾×ÊÔ´µÄÖ÷Ò³Ãæ</h1> <br />
+  </div>
 	<div>
-    <form action="<%=basePath %>/login/login" method="post">
-    	ç”¨æˆ·å:<input type="text" name="username"><br>
-    	å¯†&nbsp;&nbsp;ç :<input type="password" name="password"><br>
-    	<input type="submit" value="æäº¤">
-    </form>
-    <hr>
-    </div>
-    <div>
-    	<%
-		String name= (String)session.getAttribute("user");
-		%>
-		<%=name %>
-
-    </div>
-      <s:debug></s:debug>
+		<a href="">ÉÏ´«</a>
+	</div>
+	<div>
+		<p>ÁĞ±íÏÔÊ¾×ÊÔ´</p>
+	</div>
   </body>
-
 </html>

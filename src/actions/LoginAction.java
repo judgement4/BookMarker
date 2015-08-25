@@ -3,42 +3,52 @@ package actions;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 
-import models.LoginModel;
+import models.User;
+import models.UserModel;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+
 public class LoginAction extends ActionSupport 
-						   implements ModelDriven<LoginModel>, RequestAware{
-	private LoginModel user = new LoginModel();
+						   implements ModelDriven<UserModel>,RequestAware,SessionAware{
+	private UserModel loginForm = new UserModel();
+	private UserModel userInfo = new UserModel();
 	private Map<String, Object> request;
+	private Map<String, Object> session;
 	
 	public LoginAction(){
 		System.out.println("enter the login");
 	}
-	public LoginModel getModel(){
-		return user;
+	public UserModel getModel(){
+		return loginForm;
 	}
 	
 	public void setRequest(Map<String, Object>request){
 		this.request = request; 
 	}
+	@Override
+	public void setSession(Map<String, Object>session) {
+		// TODO Auto-generated method stub
+		this.session = session;
+	}
 	
 	public String execute(){
-		if(user == null){
+		if(loginForm == null){
 			return "error";
 		}
-		System.out.println("username is:"+user.getUsername());
-		System.out.println("passwd is:"+user.getPassword());
-		if((user.getUsername().equals("FF"))&&(user.getPassword().equals("123"))){
-			this.request.put("username", user.getUsername());
-			return "success";			
+		User user = new User();
+		userInfo = user.checkUser(loginForm.getUsername(), loginForm.getPassword());
+		if(user.flag == true){
+			session.put("user", userInfo.getUsername());
+			return "success";
+		}else{
+			return "error";
 		}
-			else{
-				System.out.println("enter failed");
-				return "error";
-			}
+
 	}
+
 	
 }
