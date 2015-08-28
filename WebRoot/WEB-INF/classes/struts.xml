@@ -10,10 +10,14 @@
 			</result>
 		</action>
 	</package>
-	<package name="login" namespace="/login" extends="struts-default">
+	<package name="user" namespace="/user" extends="struts-default">
 		<action name="login" class="actions.LoginAction">
-			<result name="success">/userInfo.jsp</result>
+			<result name="success">/main.jsp</result>
 			<result name="error" type="redirect">../index.jsp</result>
+		</action>
+		<action name="register" class="actions.RegisterAction">
+			<result name="success">/register_succse.jsp</result>
+			<result name="error">/register.jsp</result>
 		</action>
 	</package>
 </struts>    

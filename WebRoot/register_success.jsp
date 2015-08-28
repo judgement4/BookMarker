@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*, models.UserModel" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>page for user information.</title>
+    <title>My JSP 'register_succse.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,11 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <p>this page is for user info.</p> <br>
-    <h2>Welcome:</h2>
-    <%UserModel user = (UserModel)session.getAttribute("user"); %>
-    <%=user.getUsername() %>
+    <p>注册成功</p>
     <hr>
-    <a href="<%=basePath %>">返回首页</a>
+    <a href="index.jsp">返回首页登录</a>
   </body>
 </html>

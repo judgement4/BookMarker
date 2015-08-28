@@ -42,7 +42,7 @@ public class LoginAction extends ActionSupport
 		User user = new User();
 		userInfo = user.checkUser(loginForm.getUsername(), loginForm.getPassword());
 		if(user.flag == true){
-			session.put("user", userInfo.getUsername());
+			session.put("user", userInfo);
 			return "success";
 		}else{
 			return "error";

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*, models.UserModel" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
@@ -26,21 +26,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	 <p> This is my first struts2 page. <br>  	
   	</div>
 	<div>
-    <form action="<%=basePath %>/login/login" method="post">
+    <form action="<%=basePath %>user/login" method="post">
     	用户名:<input type="text" name="username"><br>
     	密&nbsp;&nbsp;码:<input type="password" name="password"><br>
     	<input type="submit" value="提交">
     </form>
-    <hr>
+    <div>
+    	<hr>
+    	>> <a href="<%=basePath %>register.jsp">注册</a>
+    	<s:property value="user"/>
+    	<p id="reginfo"></p>
+    	<hr>
+    </div>  
     </div>
     <div>
     	<%
-		String name= (String)session.getAttribute("user");
+		UserModel user= (UserModel)session.getAttribute("user");
+		if(user != null){
+			out.print(user.getUsername());
+		}
 		%>
-		<%=name %>
-
     </div>
       <s:debug></s:debug>
+    <div>
+    <hr>
+    	<h3>测试用户账号</h3>
+   		<ul>
+    		<li>英文用户名：FF/123</li>
+    		<li>中文用户名:狒狒/123</li>
+    		<li>管理员用户名:admin/admin</li>
+    	</ul>
+    </div>
   </body>
 
 </html>
