@@ -1,46 +1,35 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
-
-    <title>main page for resource</title>
+    
+    <title>My JSP 'upload.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-<!--  
+	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
--->
-	<script type="text/javascript" src="js/BookUpload.js"></script>
+	-->
+
   </head>
   
   <body>
-  <div>
- 	<h1>本页面为显示资源的主页面</h1> <br />
-  </div>
-	<div>
-		<input type="button" onclick="Upload()" value="submit">
-	</div>
-	<div id="info">
-	<script type="text/javascript">
-		var name;
-		document.getElementsById("info").innerHTML = '';
-	</script>
-	</div>
-	<div>
-		>><a href="upload.jsp">上传</a>
-		<hr>
-	</div>
-	<div></div>
+    本页面用于上传资源 <br>
+    <hr>
+    <form action="<%=basePath %>book/upload" enctype="multipart/form-data" method="post">
+<!--     	书名：<input type="text" name="bookName"><br>
+    	作者：<input type="text" name="writerName"><br> -->
+    	<input type="file" name="bookFile"><br>
+    	<input type="submit" value="上传">
+    </form>
   </body>
 </html>

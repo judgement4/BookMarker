@@ -3,6 +3,7 @@
 <struts>
 <constant name="struts.devMode" value="true"/>
 <constant name="struts.i18n.encoding" value="GBK"/>
+<constant name="struts.multipart.saveDir" value="/repository"/>
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="index">
 			<result>
@@ -18,6 +19,12 @@
 		<action name="register" class="actions.RegisterAction">
 			<result name="success">/register_succse.jsp</result>
 			<result name="error">/register.jsp</result>
+		</action>
+	</package>
+	<package name="book" namespace="/book" extends="struts-default">
+		<action name="upload" class="actions.BookAction">
+			<result name="success">/main.jsp</result>
+			<result name="error">/upload.jsp</result>
 		</action>
 	</package>
 </struts>    
