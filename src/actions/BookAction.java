@@ -1,6 +1,8 @@
 package actions;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -14,6 +16,8 @@ import models.UserModel;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
+import common.Pcs;
 
 
 public class BookAction extends ActionSupport 
@@ -82,13 +86,24 @@ public class BookAction extends ActionSupport
 		
 		 ServletContext svct = ServletActionContext.getServletContext();
 	     System.out.println(fileName);
+	     String dataDir;
+	     
+	     Map<String, Object>fileInfo = new HashMap();
 	     if(bookFile != null)
 	     {
-	     String dataDir = svct.getRealPath("/");
+	     dataDir = svct.getRealPath("/");
 	     System.out.println(dataDir);
 	     File saveFile = new File(dataDir,fileName);
 	     bookFile.renameTo(saveFile);
+	     Pcs pcs = new Pcs();
+	     	try {
+	     		fileInfo = pcs.upload(dataDir, fileName);
+	     	} catch (UnsupportedEncodingException e) {
+	     		// TODO Auto-generated catch block
+	     		e.printStackTrace();
+	     	}
 	     }
+	     
 	        return SUCCESS;
 	}
 	
