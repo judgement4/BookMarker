@@ -1,5 +1,5 @@
-# onlineStorage
-This is a web app for onlie storage, which use struts2 framework and baidu pcs api.
+# Site for recording Books' information
+Rebuild this using Struts2 hibernate and spring framework, aiming to build a site to record book's information.
 
 说明：
-本应用基于struts2框架，旨在实现一个上传和用户管理系统。
+使用SSH框架建立的一个小站点，用来记录书籍信息。

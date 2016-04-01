@@ -4,6 +4,8 @@
 <constant name="struts.devMode" value="true"/>
 <constant name="struts.i18n.encoding" value="GBK"/>
 <constant name="struts.multipart.saveDir" value="/repository"/>
+<constant name="struts.objectFactory" value="spring"/>
+ 
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="index">
 			<result>
@@ -12,19 +14,14 @@
 		</action>
 	</package>
 	<package name="user" namespace="/user" extends="struts-default">
-		<action name="login" class="actions.LoginAction">
-			<result name="success">/main.jsp</result>
+		<action name="login" class="LoginAction">
+			<result name="success" type="redirect">/main.jsp</result>
 			<result name="error" type="redirect">../index.jsp</result>
 		</action>
-		<action name="register" class="actions.RegisterAction">
-			<result name="success">/register_succse.jsp</result>
+		
+		<action name="register" class="RegisterAction">
+			<result name="success">/index.jsp</result>
 			<result name="error">/register.jsp</result>
-		</action>
-	</package>
-	<package name="book" namespace="/book" extends="struts-default">
-		<action name="upload" class="actions.BookAction">
-			<result name="success">/main.jsp</result>
-			<result name="error">/upload.jsp</result>
 		</action>
 	</package>
 </struts>    

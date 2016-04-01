@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*, models.UserModel" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>BookMarker's index page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -23,29 +23,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	<div>
-  	 <p> This is my first struts2 page. <br>  	
+  	 <p> This is the index page for BookMarker website. <br>
+  	 <P> show the points and log in function. <br>   
+  	 <%System.out.println(basePath); %>
+  	 <hr>	
   	</div>
 	<div>
     <form action="<%=basePath %>user/login" method="post">
-    	用户名:<input type="text" name="username"><br>
-    	密&nbsp;&nbsp;码:<input type="password" name="password"><br>
+    	用户名:<input type="text" name="userName"><br>
+    	密&nbsp;&nbsp;码:<input type="password" name="passWord"><br>
     	<input type="submit" value="提交">
     </form>
-    <div>
-    	<hr>
-    	>> <a href="<%=basePath %>register.jsp">注册</a>
-    	<s:property value="user"/>
-    	<p id="reginfo"></p>
-    	<hr>
-    </div>  
+    <hr>
     </div>
     <div>
-    	<%
-		UserModel user= (UserModel)session.getAttribute("user");
-		if(user != null){
-			out.print(user.getUsername());
-		}
-		%>
+    	>> <a href="<%=basePath %>register.jsp">注册</a> <br>
+    	<p><s:property value="#session.userName" /></p> <br>
+    	<s:property value="#session.uid" />
+    	<p id="reginfo"></p> 
+    </div>
+    <div>
+
     </div>
       <s:debug></s:debug>
     <div>
